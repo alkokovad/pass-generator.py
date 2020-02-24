@@ -4,12 +4,14 @@ from string import ascii_letters, ascii_lowercase, ascii_uppercase, digits
 
 def generate_password(m):
     valid_symbols = list(set(ascii_letters + digits) - {'0', '1', 'I', 'l', 'o', 'O'})
-    symb = (choice(list(set(ascii_uppercase) - {'I', 'O'})) + choice(list(
-        set(ascii_lowercase) - {'l', 'o'})) + choice(list(set(digits) - {'1', '0'})))
-    valid_symbols2 = list(set(valid_symbols) - set(symb))
-    string = list(symb)
-    string += sample(valid_symbols2, m)
-    string = shuffle(string)
+    valid_lowercase = list(set(ascii_lowercase) - {'I', 'O'})
+    valid_uppercase = list(set(ascii_uppercase) - {'I', 'O'})
+    valid_digits = list(set(digits) - {'1', '0'})
+    symbs = choice(valid_uppercase) + choice(valid_lowercase) + choice(valid_digits)
+    valid_symbols2 = list(set(valid_symbols) - set(symbs))
+    string = list(symbs)
+    string.append(sample(valid_symbols2, m))
+    shuffle(string)
     return string
 
 
