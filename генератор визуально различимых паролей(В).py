@@ -9,7 +9,7 @@ def generate_password(m):
     valid_digits = list(set(digits) - {'1', '0'})
     symbs = choice(valid_uppercase) + choice(valid_lowercase) + choice(valid_digits)
     valid_symbols2 = list(set(valid_symbols) - set(symbs))
-    string = symbs
+    string = symbs  # а шо это значит?
     string += ''.join(sample(valid_symbols2, m))
     shuffle(list(string))
     return string
