@@ -12,6 +12,7 @@ def generate_password(m):
     string = symbs
     string += ''.join(sample(valid_symbols2, m))
     shuffle(list(string))
+    # вот так вот
     return string
 
 
